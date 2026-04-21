@@ -1,8 +1,8 @@
-/*
+*/
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.prog5121_part1;
+*/ 
+
 
 /**
  *
@@ -23,13 +23,14 @@ public class Login {
         this.phoneNumber = phoneNumber;
         this.username = username;
         this.password = password;
-        
-            public boolean checkusername() {
+    }    
+            public boolean checkUsername() {
             if (username.contains("_") && username.length() <= 5) {
                 return true;
             } else {
                 return false;
-            } 
+            }
+            }    
             public boolean checkPasswordComplexity() {
                 boolean hasNumber = false;
                 boolean hasSpecial = false;
@@ -40,11 +41,13 @@ public class Login {
                         char ch = password.charAt(i);
                         
                         if (Character.isUpperCase(ch)) {
+                            hasCapital = true;
+                        }    
                         
                        if (Character.isDigit(ch)) {
                             hasNumber = true;
                         }    
-                    }   if (!Character.isLetterOrDigit(ch)) {
+                       if (!Character.isLetterOrDigit(ch)) {
                             hasSpecial = true;
                         }    
                    }
@@ -53,11 +56,47 @@ public class Login {
                    }
                 }
                 return false;
-            }
-        }
-         
-      
-    
+                }
+}           //South African international phone numbers begin with +27 followed by 9 digits
+            //Format referenced from KrispCall inernational numbering guide (2025)
+            //https://krispcall.com/phone-numbers/international-phone-number-format/
+            //Accessed:15 April 2025
+
+                public boolean checkCellPhoneNumber(){
+                    if (phoneNumber.length() != 12 ){
+                        return false;
+                    }
+                    if (!phoneNumber.startsWith("+27")) {
+                        return false;
+                    }
+                    for (int i = 3; i < phoneNumber.length(); i++) {
+                        
+                        if (!Character.isDigit(phoneNumber.charAt(i))){
+                            return false;
+                        }
+                    }
+                    return true;
+                }   
+                public String registerUser() {
+                    if (!checkUsername()) {
+                        return "Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters.";
+                    }
+                    if (!checkPasswordComplexiity()) {
+                        return "Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and special character.";
+                    }
+                    return "User registered successfully.";
+                }
+                
+                public boolean loginUser(String enteredUsername, String enteredPassword) {
+                    return eneteredcheckUserName.equals(username) && enteredpassword.equals(password) ;
+                    
+                }
+                
+
+
+                  
+                
+                
             
     
            
