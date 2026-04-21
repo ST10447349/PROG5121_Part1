@@ -29,10 +29,42 @@ public class Login {
                 return true;
             } else {
                 return false;
+            } 
+            public boolean checkPasswordComplexity() {
+                boolean hasNumber = false;
+                boolean hasSpecial = false;
+                boolean hasCapital = false; 
+                
+                if (password.length() >=8) {
+                    for (int i = 0; i < password.length(); i++) {
+                        char ch = password.charAt(i);
+                        
+                        if (Character.isUpperCase(ch)) {
+                        
+                       if (Character.isDigit(ch)) {
+                            hasNumber = true;
+                        }    
+                    }   if (!Character.isLetterOrDigit(ch)) {
+                            hasSpecial = true;
+                        }    
+                   }
+                   if (hasCapital && hasNumber && hasSpecial) {
+                        return true;
+                   }
+                }
+                return false;
             }
         }
          
-    }   
+      
+    
+            
+    
+           
+            
+        
+         
+      
     
             
     
