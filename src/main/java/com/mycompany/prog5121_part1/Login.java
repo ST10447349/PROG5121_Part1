@@ -23,9 +23,17 @@ public class Login {
         this.phonenumber = phonenumber;
         this.username = username;
         this.password = password;
-               
-    }
+        
+            public boolean checkusername() {
+            if (username.contains("_") && username.length() <= 5) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+         
+    }   
     
             
     
-}
+
