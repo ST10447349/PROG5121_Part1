@@ -6,21 +6,21 @@ package com.mycompany.prog5121_part1;
 
 /**
  *
- * @author lab_services_student
+ * @author Boitumelo ST10447349
  */
 public class Login { 
     
     private String name;
     private String surname;
-    private String phonenumber;
+    private String phoneNumber;
     private String username;
     private String password;
     
     
-    public Login(String name, String surname, String phonenumber, String username, String password) {
+    public Login(String name, String surname, String phoneNumber, String username, String password) {
         this.name = name;
         this.surname = surname;
-        this.phonenumber = phonenumber;
+        this.phoneNumber = phoneNumber;
         this.username = username;
         this.password = password;
         
